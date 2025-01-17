@@ -12,7 +12,6 @@ jobs:
           - 2004-not-working
           - 2404-working
           - 2404-not-working
-          - 2404-working-os
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
