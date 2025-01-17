@@ -2,13 +2,18 @@
 name: Test
 on: [push]
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            matrix:
-                dockerfile: [2004-working, 2004-not-working, 2404-working, 2404-not-working]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Build the Docker image
-              run: docker build --file ${{ matrix.dockerfile }}.Dockerfile .
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dockerfile:
+          - 2004-working
+          - 2004-not-working
+          - 2404-working
+          - 2404-not-working
+          - 2404-working-os
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build --file ${{ matrix.dockerfile }}.Dockerfile .
