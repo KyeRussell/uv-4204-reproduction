@@ -2,7 +2,6 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Install deadsnakes PPA
 RUN apt-get update && apt-get install -y software-properties-common python3-distutils
 
 RUN add-apt-repository ppa:deadsnakes/ppa
